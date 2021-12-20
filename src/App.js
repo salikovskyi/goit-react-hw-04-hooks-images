@@ -25,12 +25,10 @@ export default function App() {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    if (!query) {
-      return;
-    }
+    if (!query) return;
+    setState({ pictures: [], isLoading: true, finish: false });
     fetchProducts();
   }, [query]);
-
   useEffect(() => {
     if (!query) {
       return;
